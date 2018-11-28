@@ -24,9 +24,10 @@ public class Fox_Move : MonoBehaviour {
 		down=false;
 		jumping=false;
 		crouching=false;
+		dead = false;
 		rateOfHit=Time.time;
 		life=GameObject.FindGameObjectsWithTag("Life");
-		qtdLife=life.Length;
+		qtdLife = 4;
 	}
 	
 	// Update is called once per frame
@@ -38,11 +39,7 @@ public class Fox_Move : MonoBehaviour {
 				if(crouching==false){
 					Movement();
 					Attack();
-					//Special();
-					if(gameObject.tag=="spike")
-  					{
-						Hurt();
-				  	}    
+					//Special();   
 				}
 				Jump();
 				Crouch();
@@ -152,6 +149,10 @@ public class Fox_Move : MonoBehaviour {
 			anim.SetTrigger("Damage");
 			Hurt();
 		}
+		if(other.gameObject.tag == "death_floor"){
+			Dead();
+			TryAgain();
+		}
 	}
 
 	void Hurt(){
@@ -160,17 +161,21 @@ public class Fox_Move : MonoBehaviour {
 			Destroy(life[qtdLife-1]);
 			qtdLife-=1;
 		}
+		if(qtdLife == 0)
+		{
+			Dead();
+			TryAgain();
+		}
 	}
 
 	void Dead(){
 		if(qtdLife<=0){
 			anim.SetTrigger("Dead");
 			dead=true;
-
 		}
 	}
 
 	public void TryAgain(){														//Just to Call the level again
-		SceneManager.LoadScene("Level_1");
+		SceneManager.LoadScene("day pt.1");
 	}
 }
