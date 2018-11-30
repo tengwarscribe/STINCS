@@ -1,6 +1,9 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
+//using FoxHealth;
 
 public class Fox_Move : MonoBehaviour {
 
@@ -11,11 +14,15 @@ public class Fox_Move : MonoBehaviour {
     private Animator anim;
 	private SpriteRenderer sp;
 	private float rateOfHit;
-	private GameObject[] life;
-	private int qtdLife;
+	public float hitPoints;
+    public float timeToDie;
+    private float maxHealth;
+    public Slider healthbar;
+	//private float life;
+	//private int qtdLife;
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 		sp=GetComponent<SpriteRenderer>();
@@ -26,14 +33,24 @@ public class Fox_Move : MonoBehaviour {
 		crouching=false;
 		dead = false;
 		rateOfHit=Time.time;
-		life=GameObject.FindGameObjectsWithTag("Life");
-		qtdLife = 4;
+		hitPoints = 100;
+		maxHealth = hitPoints;
+        healthbar.value = CalculateHealth(); //connects the in game health to UI 
 	}
-	
-	// Update is called once per frame
+
+	/*private void Update()
+    {
+        //This is a dealing damage test code
+        if (Input.GetKeyDown(KeyCode.X))
+            DealDamage(10);
+	}*/
+
+	 /// Update is called once per frame
 	// This update was not fixed there was no else statement for "if(dead==false)"
-	void FixedUpdate () {
-		if(dead==false){
+	void FixedUpdate() 
+	{
+		if(dead==false)
+		{
 		//Character doesnt choose direction in Jump									//If you want to choose direction in jump
 			if(attacking==false){													//just delete the (jumping==false)
 				if(crouching==false){
@@ -47,11 +64,53 @@ public class Fox_Move : MonoBehaviour {
 		}
 		else 
 		{
-			Dead();
+			Death();
 			TryAgain();
 		}
-
 	}
+
+    // Update is called once per frame
+    void LateUpdate()
+    {
+        if (hitPoints <= 0)
+        {
+            StartCoroutine(Death());
+        }
+    }
+
+    void DealDamage(float damageValue)
+    {
+        hitPoints -= damageValue;
+        healthbar.value = CalculateHealth();
+        if (hitPoints <= 0)
+            Death();
+    }
+
+    IEnumerator Death()
+    {
+        yield return new WaitForSeconds(timeToDie);
+        hitPoints = 0;
+        Destroy(gameObject);
+        Debug.Log("You Died");
+    }
+
+    float CalculateHealth()
+    {
+        return hitPoints / maxHealth; //calculates health from max health. Returns in decimals representing percentage. 99/100 = .99
+    }
+
+    public float HitPoints
+    {
+        get { return hitPoints; }
+        set
+        {
+            hitPoints += value;
+            if (hitPoints > maxHealth)
+            {
+                hitPoints = maxHealth;
+            }
+        }
+    }
 
 	void Movement(){
 		//Character Move
@@ -109,7 +168,7 @@ public class Fox_Move : MonoBehaviour {
 
 	void Attack(){																//I activated the attack animation and when the 
 		//Atacking																//animation finish the event calls the AttackEnd()
-		if(Input.GetKeyDown(KeyCode.C)){
+		if(Input.GetKeyDown(KeyCode.X)){
 			rb.velocity=new Vector2(0,0);
 			anim.SetTrigger("Attack");
 			attacking=true;
@@ -120,13 +179,13 @@ public class Fox_Move : MonoBehaviour {
 		attacking=false;
 	}
 
-	/*void Special(){
+	void Special(){
 		if(Input.GetKey(KeyCode.Space)){
 			anim.SetBool("Special",true);
 		}else{
 			anim.SetBool("Special",false);
 		}
-	}*/
+	}
 
 	void Crouch(){
 		//Crouch
@@ -140,22 +199,21 @@ public class Fox_Move : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){							//Case of Bullet
 		if(other.tag=="Enemy"){
 			anim.SetTrigger("Damage");
-			Hurt();
 		}
 	}								
 
 	void OnCollisionEnter2D(Collision2D other) {						//Case of Touch
 		if(other.gameObject.tag=="Enemy"){
 			anim.SetTrigger("Damage");
-			Hurt();
+			DealDamage(10);
 		}
 		if(other.gameObject.tag == "death_floor"){
-			Dead();
+			Death();
 			TryAgain();
 		}
 	}
 
-	void Hurt(){
+	/*void Hurt(){
 		if(rateOfHit<Time.time){
 			rateOfHit=Time.time+cooldownHit;
 			Destroy(life[qtdLife-1]);
@@ -173,7 +231,7 @@ public class Fox_Move : MonoBehaviour {
 			anim.SetTrigger("Dead");
 			dead=true;
 		}
-	}
+	}*/
 
 	public void TryAgain(){														//Just to Call the level again
 		SceneManager.LoadScene("day pt.1");

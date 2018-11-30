@@ -22,8 +22,10 @@ public class WeaponSwitch : MonoBehaviour {
             else
                 selectedWeapon++;
         }
-        if(Input.GetKeyDow)
+        if(Input.GetKeyDown(KeyCode.X))
+        {
 
+        }
 
     }
 
