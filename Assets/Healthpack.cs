@@ -1,33 +1,43 @@
-﻿/*using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Healthpack : MonoBehaviour {
+public class Healthpack : MonoBehaviour
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+{
 
-    function OnTriggerEnter2D ()
+
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if (life >= 80)
+        if (collision.gameObject.tag == "Player")
         {
-            life = 100;
+            Health otherProjectile = collision.gameObject.GetComponent<Health>();
+
+            Debug.Log("I am colliding with another object!");
+
+            if (otherProjectile.hitPoints <= 80)
+            {
+                otherProjectile.hitPoints += 20;
+            }
+
+            else if (otherProjectile.hitPoints > 80)
+            {
+                otherProjectile.hitPoints = 100;
+            }
+
+            Destroy(gameObject);
         }
-        else
-        {
-            Script.life += 20;
-        }
-        print("Gained 20 health");
-        Destroy(gameObject);
+    }
+    // Use this for initialization
+    void Start()
+    {
 
     }
 
-    
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update()
+    {
+
+    }
 }
-*/
