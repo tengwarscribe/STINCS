@@ -210,6 +210,7 @@ public class Fox_Move : MonoBehaviour {
 			DealDamage(10);
 		}
 		if(other.gameObject.tag == "death_floor"){
+		else if(other.gameObject.tag == "death_floor"){
 			Death();
 			TryAgain();
 		}
