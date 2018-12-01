@@ -1,9 +1,9 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
-//using FoxHealth;
 
 public class Fox_Move : MonoBehaviour {
 
@@ -22,7 +22,8 @@ public class Fox_Move : MonoBehaviour {
 	//private int qtdLife;
 
 	// Use this for initialization
-	void Start() {
+	void Start() 
+	{
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 		sp=GetComponent<SpriteRenderer>();
@@ -38,15 +39,14 @@ public class Fox_Move : MonoBehaviour {
         healthbar.value = CalculateHealth(); //connects the in game health to UI 
 	}
 
-	/*private void Update()
+	private void Update()
     {
         //This is a dealing damage test code
         if (Input.GetKeyDown(KeyCode.X))
             DealDamage(10);
-	}*/
+	}
 
 	 /// Update is called once per frame
-	// This update was not fixed there was no else statement for "if(dead==false)"
 	void FixedUpdate() 
 	{
 		if(dead==false)
@@ -90,8 +90,10 @@ public class Fox_Move : MonoBehaviour {
     {
         yield return new WaitForSeconds(timeToDie);
         hitPoints = 0;
-        Destroy(gameObject);
+        //Destroy(gameObject);
         Debug.Log("You Died");
+		anim.SetTrigger("Dead");
+		dead=true;
     }
 
     float CalculateHealth()
@@ -233,7 +235,8 @@ public class Fox_Move : MonoBehaviour {
 		}
 	}*/
 
-	public void TryAgain(){														//Just to Call the level again
-		SceneManager.LoadScene("day pt.1");
-	}
+	public void TryAgain()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}	
 }
