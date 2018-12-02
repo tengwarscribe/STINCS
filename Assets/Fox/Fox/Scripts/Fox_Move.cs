@@ -42,7 +42,7 @@ public class Fox_Move : MonoBehaviour {
 	private void Update()
     {
         //This is a dealing damage test code
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.R))
             DealDamage(10);
 	}
 
