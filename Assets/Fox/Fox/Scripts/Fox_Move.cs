@@ -209,7 +209,6 @@ public class Fox_Move : MonoBehaviour {
 			anim.SetTrigger("Damage");
 			DealDamage(10);
 		}
-		if(other.gameObject.tag == "death_floor"){
 		else if(other.gameObject.tag == "death_floor"){
 			Death();
 			TryAgain();
