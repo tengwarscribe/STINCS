@@ -36,13 +36,13 @@ public class Fox_Move : MonoBehaviour {
 		rateOfHit=Time.time;
 		hitPoints = 100;
 		maxHealth = hitPoints;
-        healthbar.value = CalculateHealth(); //connects the in game health to UI 
+        //healthbar.value = CalculateHealth(); //connects the in game health to UI 
 	}
 
 	private void Update()
     {
         //This is a dealing damage test code
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.R))
             DealDamage(10);
 	}
 
@@ -65,7 +65,7 @@ public class Fox_Move : MonoBehaviour {
 		else 
 		{
 			Death();
-			TryAgain();
+			//TryAgain();
 		}
 	}
 
@@ -204,16 +204,16 @@ public class Fox_Move : MonoBehaviour {
 		}
 	}								
 
-	void OnCollisionEnter2D(Collision2D other) {						//Case of Touch
+	/*void OnCollisionEnter2D(Collision2D other) {						//Case of Touch
 		if(other.gameObject.tag=="Enemy"){
 			anim.SetTrigger("Damage");
 			DealDamage(10);
 		}
 		else if(other.gameObject.tag == "death_floor"){
 			Death();
-			TryAgain();
+			//TryAgain();
 		}
-	}
+	}*/
 
 	/*void Hurt(){
 		if(rateOfHit<Time.time){
@@ -233,10 +233,10 @@ public class Fox_Move : MonoBehaviour {
 			anim.SetTrigger("Dead");
 			dead=true;
 		}
-	}*/
+	}
 
 	public void TryAgain()
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-	}	
+	}*/
 }
