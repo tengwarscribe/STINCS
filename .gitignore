@@ -34,3 +34,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+ProjectSettings/ProjectVersion.txt
+ProjectSettings/ProjectVersion.txt
+Assets/Loadnewscene.cs.meta
+Assets/Loadnewscene.cs
