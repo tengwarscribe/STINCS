@@ -7,6 +7,7 @@ TagManager:
   - invisiwall
   - Healthpack
   - Projectile
+  - death_floor
   layers:
   - Default
   - TransparentFX
