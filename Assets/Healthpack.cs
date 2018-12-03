@@ -8,9 +8,9 @@ public class Healthpack : MonoBehaviour
 
 
 
-    private void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             Health otherProjectile = collision.gameObject.GetComponent<Health>();
 
@@ -29,6 +29,7 @@ public class Healthpack : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     // Use this for initialization
     void Start()
     {

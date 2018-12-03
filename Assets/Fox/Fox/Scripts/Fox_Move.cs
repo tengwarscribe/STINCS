@@ -65,7 +65,6 @@ public class Fox_Move : MonoBehaviour {
 		else 
 		{
 			Death();
-			//TryAgain();
 		}
 	}
 
@@ -84,6 +83,7 @@ public class Fox_Move : MonoBehaviour {
         healthbar.value = CalculateHealth();
         if (hitPoints <= 0)
             Death();
+			TryAgain();
     }
 
     IEnumerator Death()
@@ -202,6 +202,8 @@ public class Fox_Move : MonoBehaviour {
 		if(other.tag=="Enemy"){
 			anim.SetTrigger("Damage");
 		}
+		if(other.tag=="death_floor")
+			Death();
 	}								
 
 	/*void OnCollisionEnter2D(Collision2D other) {						//Case of Touch
@@ -209,7 +211,6 @@ public class Fox_Move : MonoBehaviour {
 			anim.SetTrigger("Damage");
 			DealDamage(10);
 		}
-		if(other.gameObject.tag == "death_floor"){
 		else if(other.gameObject.tag == "death_floor"){
 			Death();
 			//TryAgain();
@@ -234,10 +235,10 @@ public class Fox_Move : MonoBehaviour {
 			anim.SetTrigger("Dead");
 			dead=true;
 		}
-	}
+	}*/
 
 	public void TryAgain()
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-	}*/
+	}
 }
