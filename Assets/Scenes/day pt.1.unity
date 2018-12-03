@@ -7135,7 +7135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea64f7271f1fdb4c8964014637d5dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 81
+  hitPoints: 60
   timeToDie: 0
   spawn: {fileID: 0}
 --- !u!95 &1363969137
