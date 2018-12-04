@@ -41,11 +41,11 @@ public class Goblin : MonoBehaviour
             StartCoroutine(makeArrow(arrowDelay, lookRight));
         }*/
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.localScale.x * Vector3.right, distance);
+       /* RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.localScale.x * Vector3.right, distance);
         if (hit.collider.tag == "Player")
         {
             animator.SetTrigger("attack");
             StartCoroutine(makeArrow(arrowDelay, lookRight));
-        }
+        }*/
     }
 }
