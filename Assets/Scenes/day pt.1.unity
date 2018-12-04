@@ -4052,7 +4052,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 21200054, guid: 65b131eded1be894198904fd6d529a42, type: 2}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 21200036, guid: 65b131eded1be894198904fd6d529a42, type: 2}
       propertyPath: m_SortingOrder

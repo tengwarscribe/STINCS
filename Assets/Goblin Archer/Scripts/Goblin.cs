@@ -47,27 +47,5 @@ public class Goblin : MonoBehaviour
             animator.SetTrigger("attack");
             StartCoroutine(makeArrow(arrowDelay, lookRight));
         }
-
-        /*if (targetPosition.x > transform.position.x && !lookRight)
-            Flip();
-        if (targetPosition.x < transform.position.x && lookRight)
-            Flip();
-
-        var p = transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-
-        //Vector3 vel = targetPosition - transform.position;
-        //vel = Vector3.ClampMagnitude(vel, speed * Time.deltaTime);
-        //transform.position += vel;
-
-        animator.SetFloat("speed", (transform.position - p).magnitude / Time.deltaTime);*/
-    }
-
-    public void Flip()
-    {
-        var s = transform.localScale;
-        s.x *= -1;
-        transform.localScale = s;
-        lookRight = !lookRight;
     }
 }
