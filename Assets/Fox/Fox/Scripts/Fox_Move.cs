@@ -93,6 +93,7 @@ public class Fox_Move : MonoBehaviour {
         //Destroy(gameObject);
         Debug.Log("You Died");
 		anim.SetTrigger("Dead");
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		dead=true;
     }
 
