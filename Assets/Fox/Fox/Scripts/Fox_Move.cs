@@ -36,7 +36,7 @@ public class Fox_Move : MonoBehaviour {
 		rateOfHit=Time.time;
 		hitPoints = 100;
 		maxHealth = hitPoints;
-        //healthbar.value = CalculateHealth(); //connects the in game health to UI 
+        healthbar.value = CalculateHealth(); //connects the in game health to UI 
 	}
 
 	private void Update()
