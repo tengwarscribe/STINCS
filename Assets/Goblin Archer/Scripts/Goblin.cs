@@ -30,30 +30,24 @@ public class Goblin : MonoBehaviour
 
     void Update()
     {
-<<<<<<< HEAD
         if (time < 40)
-=======
-        /*if (time < 150)
->>>>>>> 0e4844454fe2f47f1f6e36a4added09cdb9023e2
+
         {
             time++;
         }
         else
         {
-<<<<<<< HEAD
             time = 0;
         }
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.localScale.x * Vector3.right, distance);
-        if (hit.collider.tag == "Player" && time == 40)
-=======
+
             if (Random.Range(0f, 0.25f) > 0.125f)
                 animator.SetTrigger("attack");
             StartCoroutine(makeArrow(arrowDelay, lookRight));
-        }*/
+        }
 
-       /* RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.localScale.x * Vector3.right, distance);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.localScale.x * Vector3.right, distance);
         if (hit.collider.tag == "Player")
->>>>>>> 0e4844454fe2f47f1f6e36a4added09cdb9023e2
         {
             animator.SetTrigger("attack");
             StartCoroutine(makeArrow(arrowDelay, lookRight));
