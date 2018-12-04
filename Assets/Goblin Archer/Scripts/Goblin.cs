@@ -30,16 +30,19 @@ public class Goblin : MonoBehaviour
 
     void Update()
     {
-        if (time < 40)
+        /*if (time < 150)
         {
-            time++;
+            time = time + 1;
         }
-        else
+        else if (time == 150)
         {
-            time = 0;
-        }
+            if (Random.Range(0f, 0.25f) > 0.125f)
+                animator.SetTrigger("attack");
+            StartCoroutine(makeArrow(arrowDelay, lookRight));
+        }*/
+
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.localScale.x * Vector3.right, distance);
-        if (hit.collider.tag == "Player" && time == 40)
+        if (hit.collider.tag == "Player")
         {
             animator.SetTrigger("attack");
             StartCoroutine(makeArrow(arrowDelay, lookRight));
