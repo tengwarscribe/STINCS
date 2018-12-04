@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
+
 public class Movescene : MonoBehaviour
 {
 
@@ -14,6 +15,5 @@ public class Movescene : MonoBehaviour
         {
             SceneManager.LoadScene(loadLevel);
         }
-
     }
 }

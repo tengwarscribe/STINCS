@@ -203,7 +203,7 @@ public class Fox_Move : MonoBehaviour {
 		if(other.tag=="Enemy"){
 			anim.SetTrigger("Damage");
 		}
-		if(other.name=="arrow rot")
+		if(other.tag=="arrow rot")
 		{
 			DealDamage(20f);
 		}
