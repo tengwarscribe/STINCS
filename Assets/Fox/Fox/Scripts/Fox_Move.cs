@@ -36,7 +36,7 @@ public class Fox_Move : MonoBehaviour {
 		rateOfHit=Time.time;
 		hitPoints = 100;
 		maxHealth = hitPoints;
-        //healthbar.value = CalculateHealth(); //connects the in game health to UI 
+        healthbar.value = CalculateHealth(); //connects the in game health to UI 
 	}
 
 	private void Update()
@@ -93,6 +93,7 @@ public class Fox_Move : MonoBehaviour {
         //Destroy(gameObject);
         Debug.Log("You Died");
 		anim.SetTrigger("Dead");
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		dead=true;
     }
 
@@ -201,6 +202,10 @@ public class Fox_Move : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){							//Case of Bullet
 		if(other.tag=="Enemy"){
 			anim.SetTrigger("Damage");
+		}
+		if(other.name=="arrow rot")
+		{
+			DealDamage(20f);
 		}
 	}
 
