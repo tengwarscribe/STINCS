@@ -3533,6 +3533,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.24527459
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 65b131eded1be894198904fd6d529a42, type: 2}
+      propertyPath: distance
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65b131eded1be894198904fd6d529a42, type: 2}
   m_IsPrefabAsset: 0
@@ -14517,6 +14521,14 @@ Prefab:
     - target: {fileID: 100000, guid: 65b131eded1be894198904fd6d529a42, type: 2}
       propertyPath: m_Name
       value: goblin archer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 65b131eded1be894198904fd6d529a42, type: 2}
+      propertyPath: arrowDelay
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 65b131eded1be894198904fd6d529a42, type: 2}
+      propertyPath: speed
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65b131eded1be894198904fd6d529a42, type: 2}
