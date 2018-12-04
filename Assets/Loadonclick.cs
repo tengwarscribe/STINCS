@@ -8,4 +8,10 @@ public class Loadonclick : MonoBehaviour {
     {
         Application.LoadLevel(level);
     }
+
+    public void QuitGame()
+    {
+        Debug.Log("QUIT!");
+        Application.Quit();
+    }
 }
