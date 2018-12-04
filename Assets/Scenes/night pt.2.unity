@@ -5062,12 +5062,12 @@ Prefab:
     - target: {fileID: 224931421103752458, guid: 1ddb753af9a61aa44aacbab1419f10c0,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224996786078049424, guid: 1ddb753af9a61aa44aacbab1419f10c0,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ddb753af9a61aa44aacbab1419f10c0, type: 2}
@@ -7063,7 +7063,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 13.201713
+  orthographic size: 7.0365286
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
