@@ -18,6 +18,6 @@ public class Arrow : MonoBehaviour {
 		transform.position += v*Time.deltaTime;
 		v += a * Time.deltaTime;
         
-       transform.rotation = Quaternion.LookRotation(v, new Vector3(0,0,-1));
+        transform.rotation = Quaternion.LookRotation(v, new Vector3(0,0,-1)); 
 	}
 }
