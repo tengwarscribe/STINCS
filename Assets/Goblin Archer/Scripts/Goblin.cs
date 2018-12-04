@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Goblin : MonoBehaviour
@@ -31,7 +31,6 @@ public class Goblin : MonoBehaviour
     void Update()
     {
         if (time < 40)
-
         {
             time++;
         }
@@ -40,14 +39,7 @@ public class Goblin : MonoBehaviour
             time = 0;
         }
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.localScale.x * Vector3.right, distance);
-
-            if (Random.Range(0f, 0.25f) > 0.125f)
-                animator.SetTrigger("attack");
-            StartCoroutine(makeArrow(arrowDelay, lookRight));
-        }
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.localScale.x * Vector3.right, distance);
-        if (hit.collider.tag == "Player")
+        if (hit.collider.tag == "Player" && time == 40)
         {
             animator.SetTrigger("attack");
             StartCoroutine(makeArrow(arrowDelay, lookRight));
