@@ -30,44 +30,19 @@ public class Goblin : MonoBehaviour
 
     void Update()
     {
-        /*if (time < 150)
+        if (time < 25)
         {
-            time = time + 1;
+            time++;
         }
-        else if (time == 150)
+        else
         {
-            if (Random.Range(0f, 0.25f) > 0.125f)
-                animator.SetTrigger("attack");
-            StartCoroutine(makeArrow(arrowDelay, lookRight));
-        }*/
-
+            time = 0;
+        }
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.localScale.x * Vector3.right, distance);
-        if (hit.collider.tag == "Player")
+        if (hit.collider.tag == "Player" && time == 25)
         {
             animator.SetTrigger("attack");
             StartCoroutine(makeArrow(arrowDelay, lookRight));
         }
-
-        /*if (targetPosition.x > transform.position.x && !lookRight)
-            Flip();
-        if (targetPosition.x < transform.position.x && lookRight)
-            Flip();
-
-        var p = transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-
-        //Vector3 vel = targetPosition - transform.position;
-        //vel = Vector3.ClampMagnitude(vel, speed * Time.deltaTime);
-        //transform.position += vel;
-
-        animator.SetFloat("speed", (transform.position - p).magnitude / Time.deltaTime);*/
-    }
-
-    public void Flip()
-    {
-        var s = transform.localScale;
-        s.x *= -1;
-        transform.localScale = s;
-        lookRight = !lookRight;
     }
 }
