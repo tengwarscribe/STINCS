@@ -5518,7 +5518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127ff8e8ca2e9994983c320dfbfea7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadLevel: day pt.2
+  loadLevel: night
 --- !u!50 &1037058674
 Rigidbody2D:
   serializedVersion: 4
