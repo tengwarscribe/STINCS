@@ -36,13 +36,13 @@ public class Fox_Move : MonoBehaviour {
 		rateOfHit=Time.time;
 		hitPoints = 100;
 		maxHealth = hitPoints;
-        //healthbar.value = CalculateHealth(); //connects the in game health to UI 
+        healthbar.value = CalculateHealth(); //connects the in game health to UI 
 	}
 
 	private void Update()
     {
         //This is a dealing damage test code
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.T))
             DealDamage(10);
 	}
 
@@ -51,7 +51,7 @@ public class Fox_Move : MonoBehaviour {
 	{
 		if(dead==false)
 		{
-		//Character doesnt choose direction in Jump									//If you want to choose direction in jump
+		//Character doesn't choose direction in Jump									//If you want to choose direction in jump
 			if(attacking==false){													//just delete the (jumping==false)
 				if(crouching==false){
 					Movement();
@@ -202,42 +202,10 @@ public class Fox_Move : MonoBehaviour {
 		if(other.tag=="Enemy"){
 			anim.SetTrigger("Damage");
 		}
-	}								
-
-	/*void OnCollisionEnter2D(Collision2D other) {						//Case of Touch
-		if(other.gameObject.tag=="Enemy"){
-			anim.SetTrigger("Damage");
-			DealDamage(10);
-		}
-		if(other.gameObject.tag == "death_floor"){
-		else if(other.gameObject.tag == "death_floor"){
-			Death();
-			//TryAgain();
-		}
-	}*/
-
-	/*void Hurt(){
-		if(rateOfHit<Time.time){
-			rateOfHit=Time.time+cooldownHit;
-			Destroy(life[qtdLife-1]);
-			qtdLife-=1;
-		}
-		if(qtdLife == 0)
-		{
-			Dead();
-			TryAgain();
-		}
-	}
-
-	void Dead(){
-		if(qtdLife<=0){
-			anim.SetTrigger("Dead");
-			dead=true;
-		}
 	}
 
 	public void TryAgain()
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-	}*/
+	}
 }
