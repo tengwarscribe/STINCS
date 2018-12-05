@@ -10,7 +10,8 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 11400000}
   - component: {fileID: 61337370742168576}
-  m_Layer: 10
+  - component: {fileID: 50552448771562412}
+  m_Layer: 0
   m_Name: arrow rot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +27,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400002}
   - component: {fileID: 21200000}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: goblin_arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,9 +72,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1181c76556e8b2240bf50dc10f241678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v: {x: 4.5, y: 3, z: 0}
+  v: {x: 10, y: 3, z: 0}
   a: {x: 0, y: -10, z: 0}
   right: 1
+  damage: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -131,6 +133,26 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabAsset: 1
+--- !u!50 &50552448771562412
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!61 &61337370742168576
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -140,7 +162,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
