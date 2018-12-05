@@ -38,12 +38,12 @@ public class Goblin : MonoBehaviour
         {
             time = 0;
         }
-       /* RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.localScale.x * Vector3.right, distance);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.localScale.x * Vector3.right, distance);
         if (hit.collider.tag == "Player" && time == 40)
         {
             animator.SetTrigger("attack");
             StartCoroutine(makeArrow(arrowDelay, lookRight));
         }
-        */
+        
     }
 }
