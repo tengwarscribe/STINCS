@@ -44,5 +44,6 @@ public class Goblin : MonoBehaviour
             animator.SetTrigger("attack");
             StartCoroutine(makeArrow(arrowDelay, lookRight));
         }
+        
     }
 }
