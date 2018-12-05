@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class Goblin : MonoBehaviour
@@ -44,5 +44,6 @@ public class Goblin : MonoBehaviour
             animator.SetTrigger("attack");
             StartCoroutine(makeArrow(arrowDelay, lookRight));
         }
+        
     }
 }
